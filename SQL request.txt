@@ -1,0 +1,20 @@
+1. Баланс по каждому пользователю (сумма денег по всем номерам и операторам каждого пользователя):
+
+SELECT users.name, SUM(telephons.balance) as balance FROM users LEFT OUTER JOIN telephons ON users.id = telephons.user_id GROUP BY users.name;
+
+
+
+2. Количество номеров телефонов по операторам (список: код оператора, кол-во номеров этого оператора):
+
+SELECT operator_codes.code, COUNT(telephons.number) as balance FROM operator_codes LEFT OUTER JOIN telephons ON operator_codes.id = telephons.operator_code_id GROUP BY operator_codes.code;
+
+
+
+3. Количество телефонов у каждого пользователя (список: имя пользователя, кол-во номеров у пользователя):
+
+SELECT users.name, COUNT(telephons.number) as count_numbers FROM users LEFT OUTER JOIN telephons ON users.id = telephons.user_id GROUP BY users.name;
+
+
+4. Вывести имена 10 пользователей с максимальным балансом на счету (максимальный баланс по одному номеру):
+
+SELECT users.name FROM users LEFT OUTER JOIN telephons ON users.id = telephons.user_id ORDER BY telephons.balance DESC LIMIT 0, 10;
