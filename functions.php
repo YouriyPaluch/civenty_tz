@@ -1,4 +1,8 @@
 <?php
+/**
+ * get random user name
+ * @return string
+ */
 function randomUserName()
 {
     $namelength = rand(5, 8);
@@ -15,16 +19,28 @@ function randomUserName()
     return $name;
 }
 
+/**
+ * get count phone numbers
+ * @return int
+ */
 function randomCountPhone()
 {
     return rand(1, 3);
 }
 
+/**
+ * get operator code
+ * @return int
+ */
 function randomCodeOperator()
 {
     return rand(1, 4);
 }
 
+/**
+ * get telephone numbers
+ * @return array
+ */
 function randomPhoneNumber()
 {    $countPhone = randomCountPhone();
     for($j = 1; $j<=$countPhone; $j++) {
@@ -46,6 +62,10 @@ function randomPhoneNumber()
     return $allPhones;
 }
 
+/**
+ * get phone balance
+ * @return float|int
+ */
 function randomPhoneBalance()
 {
     $positive =rand(1,2);
@@ -57,6 +77,10 @@ function randomPhoneBalance()
     return $balance;
 }
 
+/**
+ * get user birthday date
+ * @return false|string
+ */
 function randomBirthday()
 {
     $timestamp = rand(162055681, 1362055681);
@@ -64,6 +88,10 @@ function randomBirthday()
     return $birthday;
 }
 
+/**
+ * create user
+ * @return array
+ */
 function createUser()
 {
     $userName = randomUserName();
